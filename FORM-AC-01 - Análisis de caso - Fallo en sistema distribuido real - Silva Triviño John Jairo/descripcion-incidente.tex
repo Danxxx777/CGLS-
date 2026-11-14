@@ -1,0 +1,26 @@
+% Literal A - Descripción del incidente y cronología (Silva Triviño John Jairo)
+% Requiere en el preámbulo: booktabs y tabularx. La entrada googlecloud19009 ya está en el referencias.bib del equipo.
+\section{Descripción del incidente}
+
+El 2 de junio de 2019 falló el plano de control de la red de Google Cloud: un mantenimiento en una sola ubicación física detuvo los procesos que gestionan la red, y poco después se retiraron rutas BGP entre los sitios afectados y cayó la capacidad de la red. Esto causó pérdida de paquetes y problemas de conectividad en seis regiones (us-central1, us-east1, us-east4, us-west2, northamerica-northeast1 y southamerica-east1), con servicios como Compute Engine, Cloud VPN, Cloud Spanner y Cloud Storage degradados o inaccesibles; las regiones de Europa y Asia no se vieron afectadas. La interrupción duró entre 3 h 19 min y 4 h 25 min, según la región \cite{googlecloud19009}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Línea de tiempo del 2 de junio de 2019 en PDT (UTC$-$7) y su conversión a UTC (+7 h). Fuente de todas las horas: \cite{googlecloud19009}.}
+  \label{tab:linea-tiempo}
+  \small
+  \begin{tabularx}{\linewidth}{@{}ccX@{}}
+    \toprule
+    PDT & UTC & Qué representa \\
+    \midrule
+    11:45 & 18:45 & Inicio del mantenimiento; es la hora de inicio del encabezado del informe. \\
+    11:47--11:49 & 18:47--18:49 & Primeros efectos en usuarios finales. \\
+    12:53 & 19:53 & Primer aviso público en el panel de estado. \\
+    13:01 & 20:01 & Se identifica la causa y se detiene la automatización de mantenimiento. \\
+    14:03 & 21:03 & Comienza el despliegue de una nueva configuración de red. \\
+    15:19 & 22:19 & Empieza a recuperarse la capacidad de la red. \\
+    15:40 & 22:40 & Fin del incidente según el encabezado del informe. \\
+    16:10 & 23:10 & Recuperación completa de la red según el relato técnico. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
