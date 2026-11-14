@@ -1,0 +1,11 @@
+% Desde la raíz del repositorio, incluir con:
+% \input{FORM-AC-01 - Análisis de caso - Fallo en sistema distribuido real - Loor Mendoza Byron Daniel/causas-raiz.tex}
+% En el preámbulo, cargar las entradas con:
+% \addbibresource{FORM-AC-01 - Análisis de caso - Fallo en sistema distribuido real - Loor Mendoza Byron Daniel/referencias.bib}
+\section{Causas raíz}
+
+Durante un mantenimiento local, dos configuraciones y un error de automatización detuvieron procesos del plano de control en varios sitios. La red operó unos minutos sin esos procesos. Luego se retiraron rutas BGP y cayó su capacidad. La congestión dificultó el diagnóstico y reconstruir la configuración demoró la recuperación \cite{googlecloud19009}. ThousandEyes observó pérdida de paquetes en el borde de la red en las rutas monitoreadas \cite[fig.~4]{medina2019googlecloud}.
+El árbol de fallos editable está disponible en el repositorio del equipo (\texttt{diagrama-causas.drawio}).
+
+\paragraph*{Declaración de uso de inteligencia artificial}
+Leí el informe de Google Cloud e identifiqué las dos configuraciones y el error de software que causaron el fallo. Usé OpenAI Codex (GPT-6.1 Sol, esfuerzo de razonamiento alto) para ajustar la redacción del literal B, preparar el árbol de fallos en draw.io y su PDF, cotejar las referencias e incorporar el apartado en LaTeX. Contrasté las causas con el informe oficial y revisé los rótulos y las conexiones del diagrama.
