@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="causas-gcp-2019" name="Árbol de fallos">
+    <mxGraphModel grid="1" guides="1" connect="1" page="1" pageScale="1" pageWidth="640" pageHeight="356">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="linea-1" style="strokeColor=#191919;strokeWidth=1.05;endArrow=none;startArrow=none;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="y1" target="evento">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="linea-2" style="strokeColor=#191919;strokeWidth=1.05;endArrow=none;startArrow=none;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="mantenimiento" target="y1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="100" y="124" />
+              <mxPoint x="320" y="124" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="linea-3" style="strokeColor=#191919;strokeWidth=1.05;endArrow=none;startArrow=none;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="configuracion" target="y1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="linea-4" style="strokeColor=#191919;strokeWidth=1.05;endArrow=none;startArrow=none;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="error" target="y1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="124" />
+              <mxPoint x="320" y="124" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="linea-5" style="strokeColor=#191919;strokeWidth=1.05;endArrow=none;startArrow=none;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="y2" target="configuracion">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="linea-6" style="strokeColor=#191919;strokeWidth=1.05;endArrow=none;startArrow=none;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="config1" target="y2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="213" y="257" />
+              <mxPoint x="320" y="257" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="linea-7" style="strokeColor=#191919;strokeWidth=1.05;endArrow=none;startArrow=none;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="config2" target="y2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="427" y="257" />
+              <mxPoint x="320" y="257" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="linea-8" style="strokeColor=#191919;strokeWidth=1.05;endArrow=none;startArrow=none;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="externo" target="mantenimiento">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="linea-9" style="strokeColor=#191919;strokeWidth=1.05;endArrow=none;startArrow=none;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="basico-error" target="error">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="linea-10" style="strokeColor=#191919;strokeWidth=1.05;endArrow=none;startArrow=none;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="basico-1" target="config1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="linea-11" style="strokeColor=#191919;strokeWidth=1.05;endArrow=none;startArrow=none;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="basico-2" target="config2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="evento" value="&lt;b&gt;Detención del plano de control en varios sitios&lt;/b&gt;&lt;br&gt;Efecto: retirada de rutas BGP, congestión y pérdida de conectividad" style="rounded=0;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial Narrow;fontSize=14;fontColor=#151515;strokeColor=#191919;strokeWidth=1.05;fillColor=#EEEEEE;" vertex="1" parent="1">
+          <mxGeometry x="90" y="12" width="460" height="51" as="geometry" />
+        </mxCell>
+        <mxCell id="y1" value="&lt;b&gt;Y&lt;/b&gt;" style="shape=stencil(fZFbDoMgEEVXw2cbZUyTfjbWrqAboIqVFMEAvnZfyJhW7OOHzL1zYB4QyG3DOk5ooljLCZwJpZfryZ/eGlFnCcoGJWQome146dAbmBHsJjlmrDP6wUdRueWKUA03woUsFATyWht+N7pXFeqOBTJErR5CMxPeWwrPUeELklKon2R6XJNlb/DRNGYXuTvsAdCaaDzxTD8R2CDwrWTcXPZvjlJqy1/KB+9l1EJK3OU6v12et/APoXgC);html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial Narrow;fontSize=14;fontColor=#151515;strokeColor=#191919;strokeWidth=1.05;fillColor=#FFFFFF;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="303" y="78" width="34" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="mantenimiento" value="&lt;b&gt;Mantenimiento&lt;/b&gt;&lt;br&gt;Un solo sitio a las 11:45 PDT" style="rounded=0;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial Narrow;fontSize=14;fontColor=#151515;strokeColor=#191919;strokeWidth=1.05;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="13" y="144" width="174" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="configuracion" value="&lt;b&gt;Configuración del mantenimiento&lt;/b&gt;&lt;br&gt;Dos condiciones concurrentes" style="rounded=0;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial Narrow;fontSize=14;fontColor=#151515;strokeColor=#191919;strokeWidth=1.05;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="224" y="144" width="192" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="error" value="&lt;b&gt;Error de software&lt;/b&gt;&lt;br&gt;Permitió detener clústeres&lt;br&gt;en distintos sitios a la vez" style="rounded=0;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial Narrow;fontSize=14;fontColor=#151515;strokeColor=#191919;strokeWidth=1.05;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="453" y="144" width="174" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="y2" value="&lt;b&gt;Y&lt;/b&gt;" style="shape=stencil(fZFbDoMgEEVXw2cbZUyTfjbWrqAboIqVFMEAvnZfyJhW7OOHzL1zYB4QyG3DOk5ooljLCZwJpZfryZ/eGlFnCcoGJWQome146dAbmBHsJjlmrDP6wUdRueWKUA03woUsFATyWht+N7pXFeqOBTJErR5CMxPeWwrPUeELklKon2R6XJNlb/DRNGYXuTvsAdCaaDzxTD8R2CDwrWTcXPZvjlJqy1/KB+9l1EJK3OU6v12et/APoXgC);html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial Narrow;fontSize=14;fontColor=#151515;strokeColor=#191919;strokeWidth=1.05;fillColor=#FFFFFF;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="303" y="215" width="34" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="config1" value="&lt;b&gt;Detención configurada&lt;/b&gt;&lt;br&gt;Del plano de control y su soporte" style="rounded=0;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial Narrow;fontSize=14;fontColor=#151515;strokeColor=#191919;strokeWidth=1.05;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="122" y="274" width="182" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="config2" value="&lt;b&gt;Gestores elegibles&lt;/b&gt;&lt;br&gt;Para ese tipo de mantenimiento" style="rounded=0;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial Narrow;fontSize=14;fontColor=#151515;strokeColor=#191919;strokeWidth=1.05;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="336" y="274" width="182" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="externo" value="" style="shape=stencil(jZFtDsIgDIZPw38EPICZ2wm8AG6dEBkQwE1vL6SLH0sw/iF93z6lpRDeRCU9EEatnIDwI2GsOx3yma0FtaAoFUouUMrooU/ozTJoeTaAmZiCu8Kih7SWaKsg6FSyvCW8GV2AS3A3O6D2spAlmtxchrlj3dr48dW4Q9JoWyV3+zq5QWmdFP9fKn5N2hsX4aVy8H7uqI3BbX3mt+vJFv4Sb58=);html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial Narrow;fontSize=14;fontColor=#151515;strokeColor=#191919;strokeWidth=1.05;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="92" y="214" width="16" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="basico-error" value="" style="shape=ellipse;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial Narrow;fontSize=14;fontColor=#151515;strokeColor=#191919;strokeWidth=1.05;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="532" y="214" width="16" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="basico-1" value="" style="shape=ellipse;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial Narrow;fontSize=14;fontColor=#151515;strokeColor=#191919;strokeWidth=1.05;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="205" y="331" width="16" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="basico-2" value="" style="shape=ellipse;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial Narrow;fontSize=14;fontColor=#151515;strokeColor=#191919;strokeWidth=1.05;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="419" y="331" width="16" height="16" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
