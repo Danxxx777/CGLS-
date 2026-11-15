@@ -1,23 +1,212 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 \usepackage[spanish]{babel}
 \usepackage[margin=2cm]{geometry}
-\usepackage{tabularx}
+\usepackage{tabularx,multicol}
 \providecommand{\toprule}{\hline}
 \providecommand{\midrule}{\hline}
 \providecommand{\bottomrule}{\hline}
 \usepackage[backend=biber,style=ieee]{biblatex}
-\addbibresource{FORM-AC-01 - Análisis de caso - Fallo en sistema distribuido real - Loor Mendoza Byron Daniel/referencias.bib}
+\addbibresource{referencias.bib}
+
 \begin{document}
+\begin{titlepage}
+\centering
+{\Large\bfseries Universidad Técnica Estatal de Quevedo\par}
+\medskip
+Facultad de Ciencias de la Computación\par
+Carrera de Software\par
+\vfill
+{\Large Aplicaciones Distribuidas (ISR-701)\par}
+\medskip
+{\large FORM-AC-01 - Análisis de caso\par}
+\medskip
+{\LARGE\bfseries Fallo en un sistema distribuido real\par}
+\medskip
+{\large Incidente de red de Google Cloud del 2 de junio de 2019\par}
+\vfill
+\textbf{Integrantes que elaboraron el informe}\par
+{\large Giraldo Cagua Diego Jose\par
+Loor Mendoza Byron Daniel\par
+Silva Triviño John Jairo\par}
+\bigskip
+\textbf{Docente}\par
+Ing. Guerrero Ulloa Gleiston Cicerón, PhD\par
+\medskip
+Séptimo nivel, paralelo A\par
+\vfill
+Quevedo, Ecuador\par
+14 de noviembre de 2026\par
+\end{titlepage}
+
 \begingroup
 \small
+\setlength{\parskip}{0pt}
+\setlength{\columnsep}{16pt}
 \setlength{\floatsep}{6pt}
 \setlength{\textfloatsep}{7pt}
 \setlength{\intextsep}{7pt}
-\input{FORM-AC-01 - Análisis de caso - Fallo en sistema distribuido real - Silva Triviño John Jairo/descripcion-incidente.tex}
-\input{FORM-AC-01 - Análisis de caso - Fallo en sistema distribuido real - Loor Mendoza Byron Daniel/causas-raiz.tex}
-\endgroup
-\clearpage
-% Página 2: incorporar aquí los apartados de Diego y Khriz.
-% Después de incorporarlos, insertar \clearpage antes de la bibliografía.
+
+% Literal A - Descripción del incidente y cronología (Silva Triviño John Jairo)
+\begin{multicols}{2}
+\raggedcolumns
+\section{Descripción del incidente}
+
+El 2 de junio de 2019 falló el plano de control de la red de Google Cloud: un mantenimiento en una sola ubicación física detuvo los procesos que gestionan la red, y poco después se retiraron rutas BGP entre los sitios afectados y cayó la capacidad de la red. Esto causó pérdida de paquetes y problemas de conectividad en seis regiones (us-central1, us-east1, us-east4, us-west2, northamerica-northeast1 y southamerica-east1), con servicios como Compute Engine, Cloud VPN, Cloud Spanner y Cloud Storage degradados o inaccesibles; las regiones de Europa y Asia no se vieron afectadas. La interrupción duró entre 3 h 19 min y 4 h 25 min, según la región \cite{googlecloud19009}.
+
+\medskip\noindent\textbf{Cronología del 2 de junio (PDT / UTC)} \cite{googlecloud19009}\par
+\noindent\begin{tabularx}{\linewidth}{|l|l|@{\hspace{3pt}}X|}\hline PDT & UTC & Hito \\ \hline
+11:45 & 18:45 & Inicio del mantenimiento; es la hora de inicio del encabezado del informe. \\ \hline
+11:47--11:49 & 18:47--18:49 & Primeros efectos en usuarios finales. \\ \hline
+12:53 & 19:53 & Primer aviso público en el panel de estado. \\ \hline
+13:01 & 20:01 & Se identifica la causa y se detiene la automatización de mantenimiento. \\ \hline
+14:03 & 21:03 & Comienza el despliegue de una nueva configuración de red. \\ \hline
+15:19 & 22:19 & Empieza a recuperarse la capacidad de la red. \\ \hline
+15:40 & 22:40 & Fin del incidente según el encabezado del informe. \\ \hline
+16:10 & 23:10 & Recuperación completa de la red según el relato técnico. \\ \hline
+\end{tabularx}\par
+
+% Literal B - Causas raíz (Loor Mendoza Byron Daniel)
+
+
+\section{Causas raíz}
+
+Durante un mantenimiento local, dos configuraciones y un error de automatización detuvieron procesos del plano de control en varios sitios. La red operó unos minutos sin esos procesos. Luego se retiraron rutas BGP y cayó su capacidad. La congestión dificultó el diagnóstico y reconstruir la configuración demoró la recuperación \cite{googlecloud19009}. ThousandEyes observó pérdida de paquetes en el borde de la red en las rutas monitoreadas \cite[fig.~4]{medina2019googlecloud}.
+El árbol de fallos editable está disponible en el repositorio del equipo (\texttt{diagrama-causas.drawio}).
+
+
+\section{Impacto y Unidad 1}
+
+El incidente de red de Google Cloud del 2 de junio de 2019 afecto a varios servicios y
+regiones. Google reporto cifras diferenciadas por servicio, region e intervalo. El impacto no
+fue uniforme: algunas regiones sufrieron perdida total de conectividad, mientras que otras
+experimentaron degradacion parcial de latencia o errores. \cite{googlecloud19009}
+
+\subsection{Cifras por servicio y region}
+
+En Compute Engine, la region us-east1 presento hasta 33 por ciento de perdida de paquetes
+entre las 11:38 y las 12:17. Entre las 12:17 y las 14:50, la perdida se redujo a un maximo de
+8 por ciento. En us-central1, la perdida alcanzo un pico de 9 por ciento inmediatamente
+despues de las 11:38 y disminuyo hacia las 12:05. \cite{googlecloud19009}
+
+Desde us-west1, la perdida de paquetes hacia us-east1 alcanzo 20 por ciento y hacia
+us-central1 alcanzo 8.6 por ciento. Hacia Europa, la perdida fue de hasta 1.9 por ciento. Las
+instancias de Compute Engine en us-east4, us-west2, northamerica-northeast1 y
+southamerica-east1 quedaron inaccesibles durante el incidente. \cite{googlecloud19009}
+
+Las aplicaciones de App Engine en us-east4, us-west2, northamerica-northeast1 y
+southamerica-east1 no estuvieron disponibles durante la interrupcion. En us-central, el
+servicio experimento una caida de 23.2 por ciento en solicitudes por segundo. \cite{googlecloud19009}
+
+Cloud Interconnect en us-east4, us-west2, northamerica-northeast1 y southamerica-east1
+presento perdida de paquetes entre 50 y 100 por ciento entre las 11:45 y las 16:10. Algunos
+enlaces BGP se desconectaron. En us-west1, us-east1 y us-central1, las interconexiones
+conectadas a la costa este registraron perdida de paquetes entre 10 y 50 por ciento debido a
+la congestion de la red troncal. \cite{googlecloud19009}
+
+Los gateways de Cloud VPN en us-east4, us-west2, northamerica-northeast1 y
+southamerica-east1 quedaron inaccesibles. En us-central1 se registro 25 por ciento de perdida
+de paquetes y en us-east1 se registro 10 por ciento. \cite{googlecloud19009}
+
+Cloud Pub/Sub presento una caida global de 27 por ciento en publicaciones y suscripciones
+exitosas. En us-east4, el error promedio fue de 0.3 por ciento en publicaciones y 25 por
+ciento en suscripciones. En southamerica-east1, los errores fueron de 11 por ciento en
+publicaciones y 36 por ciento en suscripciones. En northamerica-northeast1, los errores
+fueron de 6 por ciento en publicaciones y 31 por ciento en suscripciones. \cite{googlecloud19009}
+
+Cloud Storage presento los mayores porcentajes de error en us-west2, con 96.2 por ciento;
+southamerica-east1, con 79.3 por ciento; us-east4, con 62.4 por ciento; y
+northamerica-northeast1, con 43.4 por ciento. En us, us-east1, us-west1 y us-central1, el
+error promedio fue de 3.5, 1.7, 1.2 y 0.7 por ciento, respectivamente. \cite{googlecloud19009}
+
+BigQuery registro un error global promedio de 0.7 por ciento. La operacion jobs.insert
+presento 27 por ciento de errores entre las 11:47 y las 12:02. La operacion
+tabledata.insertAll alcanzo un pico de 24 por ciento de errores, aunque su error promedio fue
+inferior a 0.01 por ciento. \cite{googlecloud19009}
+
+El frontend de Stackdriver Monitoring experimento una caida de 5 a 10 por ciento en
+solicitudes por segundo. El error promedio de inicio de sesion fue de 8.4 por ciento y el
+error al cargar datos fue de 3.5 por ciento. \cite{googlecloud19009}
+
+Cloud Endpoints presento errores de hasta 4.4 por ciento al inicio del incidente. Entre las
+12:50 y las 15:40, el error promedio fue de 0.6 por ciento. Ademas, el 50 por ciento de los
+flujos de publicacion de configuracion fallo entre las 12:00 del 2 de junio y las 11:30 del
+4 de junio. \cite{googlecloud19009}
+
+\subsection{Impacto en Cloud Spanner}
+
+Cloud Spanner fue el componente seleccionado para el analisis de CAP. Durante el incidente,
+las instancias regionales de Spanner en us-east4, us-west2 y northamerica-northeast1
+estuvieron indisponibles entre las 11:48 y las 15:44. \cite{googlecloud19009}
+
+En el percentil 99, entre las 11:50 y las 13:10, la latencia adicional superó 1 s en \texttt{nam3} y llegó a 320 ms en \texttt{nam6}, 80 ms en \texttt{us-central1} y 2 s en \texttt{us-east1}. Desde las 13:10, el aumento bajó a 100 ms en \texttt{nam3} y 130 ms en \texttt{nam6} hasta las 16:50, y a 250 ms en \texttt{us-east1} hasta las 15:50.
+
+En \texttt{us-west1}, el aumento fue de 20 ms entre las 11:50 y las 14:10. En \texttt{nam-eur-asia1}, llegó a 120 ms en el percentil 99 entre las 13:50 y las 15:20 \cite{googlecloud19009}.
+
+
+Los datos indican que el impacto en Spanner se manifesto de dos formas. En las regiones
+us-east4, us-west2 y northamerica-northeast1, el servicio perdio disponibilidad. En otras
+configuraciones, el servicio continuo operando, pero con un aumento considerable de latencia.
+\cite{googlecloud19009}
+
+\subsection{Transparencia afectada}
+
+El incidente rompio varias formas de transparencia propias de los sistemas distribuidos.
+
+La transparencia de fallo busca ocultar al usuario la ocurrencia de fallos internos. Durante
+el incidente, esta transparencia se rompio porque los clientes observaron errores, timeouts,
+perdida de paquetes e indisponibilidad de servicios. \cite{googlecloud19009}
+
+La transparencia de ubicacion supone que el usuario no necesita conocer la ubicacion fisica de
+los recursos. En este caso, la ubicacion de las regiones afectadas se hizo visible porque los
+servicios en us-east4, us-west2, northamerica-northeast1 y southamerica-east1 quedaron
+indisponibles. \cite{googlecloud19009}
+
+La transparencia de fallo parcial busca limitar el efecto de un fallo a un componente o region
+especifica. Google reporto que la automatizacion desprogramo clusteres de control de red en
+varias ubicaciones fisicas al mismo tiempo. Esto amplio el alcance del fallo y evito que la
+falla permaneciera contenida en un solo dominio. \cite{googlecloud19009}
+
+La transparencia de replicacion busca que el usuario no perciba la existencia de replicas o
+copias distribuidas de los datos. En Cloud Spanner, la replicacion no pudo ocultar
+completamente la interrupcion. Las instancias regionales afectadas dejaron de estar
+disponibles y las configuraciones multiregion experimentaron aumentos de latencia.
+\cite{googlecloud19009}
+
+\subsection{Aplicacion de CAP a Cloud Spanner}
+
+El teorema CAP establece que, ante una particion de red, un sistema distribuido no puede
+garantizar simultaneamente consistencia y disponibilidad. En este caso, la congestion de la
+red troncal y la perdida de rutas BGP constituyen una degradacion severa de la red que puede
+analizarse como una particion. \cite{googlecloud19009}
+
+
+
+Spanner ofrece consistencia externa en sus transacciones \cite{corbett2013spanner}. La indisponibilidad regional es compatible con el diseño de Spanner, que puede ceder disponibilidad para preservar consistencia durante una partición \cite{googlecloud19009,brewer2017}.
+
+\subsection{Mecanismo de tolerancia a fallos insuficiente}
+
+El mecanismo de tolerancia a fallos que resulto insuficiente fue la redundancia del plano de
+control de red. Google disponia de multiples instancias del software de gestion de clusteres,
+pero una configuracion las marco como elegibles para el mismo evento de mantenimiento.
+\cite{googlecloud19009}
+
+El software de mantenimiento tenia un error que permitia desprogramar varios clusteres
+independientes al mismo tiempo, incluso cuando estaban ubicados en sitios fisicos distintos.
+Esto violo el principio de aislamiento entre dominios de fallo. \cite{googlecloud19009}
+
+La red estaba disenada para operar temporalmente sin plano de control en un modo conocido como
+fail static. Sin embargo, ese periodo fue demasiado corto. Despues de varios minutos, se
+retiraron rutas BGP entre ubicaciones afectadas, lo que redujo la capacidad de la red troncal
+y desconecto regiones. \cite{googlecloud19009}
+
+La recuperacion tambien fue lenta porque la configuracion del plano de control se perdio y
+tuvo que reconstruirse y redistribuirse. Google indico que persistir dicha configuracion
+habria reducido el tiempo de recuperacion en un orden de magnitud. \cite{googlecloud19009}
+
+\paragraph*{Observación sobre la integración del informe}
+Durante las últimas horas previas al cierre de esta versión, el equipo no recibió el apartado asignado a Coronel Gomez Khriz Alexander ni logró coordinar su entrega con él. El tiempo restante no permitió elaborar e integrar ese apartado.
+
 \printbibliography
+\end{multicols}
+\endgroup
 \end{document}
