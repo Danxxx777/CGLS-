@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="CadRW8ziIVyvlEuGChu0">
+    <mxGraphModel dx="7187" dy="3378" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="766" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="text;html=1;fontSize=10;align=left;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;&lt;font style=&quot;&quot;&gt;[1]&amp;nbsp;&lt;/font&gt;Google Cloud, “Google Cloud Networking Incident #19009,” &lt;em&gt;Google Cloud Status Dashboard&lt;/em&gt;, 2020.&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;[2]&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;E. Brewer, “Spanner, TrueTime and the CAP Theorem,” Google Research, 2017.&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="65" width="560" x="1990" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1F4E78;fontColor=#FFFFFF;strokeColor=#163A5A;strokeWidth=3;fontSize=23;fontStyle=1;align=center;verticalAlign=middle;spacing=12;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Google Cloud Networking Incident #19009&lt;br&gt;2 de junio de 2019&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="680" x="760" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9EAF7;strokeColor=#3973A5;fontColor=#17365D;fontSize=17;fontStyle=1;strokeWidth=2;" value="1. CONTEXTO DEL INCIDENTE" vertex="1">
+          <mxGeometry height="65" width="470" x="70" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6C9BC2;fontSize=14;align=left;spacing=10;" value="Evento: incidente de red de Google Cloud&lt;br&gt;Fecha: 2 de junio de 2019&lt;br&gt;Duración: 11:45 - 15:40 PDT" vertex="1">
+          <mxGeometry height="95" width="470" x="70" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6C9BC2;fontSize=14;align=left;spacing=10;" value="Causa raíz: automatización de mantenimiento&#xa;Desprogramación simultánea de instancias del plano de control de red" vertex="1">
+          <mxGeometry height="95" width="470" x="70" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6C9BC2;fontSize=14;align=left;spacing=10;" value="Consecuencia: retirada de rutas BGP&#xa;Congestión y reducción de capacidad del backbone" vertex="1">
+          <mxGeometry height="85" width="470" x="70" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#C65911;fontColor=#843C0C;fontSize=17;fontStyle=1;strokeWidth=2;" value="2. IMPACTO POR SERVICIO Y REGIÓN" vertex="1">
+          <mxGeometry height="65" width="500" x="650" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D99675;fontSize=14;align=left;spacing=10;" value="COMPUTE ENGINE&#xa;• us-east1: hasta 33% de pérdida de paquetes&#xa;• us-central1: pico de 9%&#xa;• us-west1 → us-east1: pico de 20%" vertex="1">
+          <mxGeometry height="115" width="500" x="650" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D99675;fontSize=14;align=left;spacing=10;" value="APP ENGINE Y CONECTIVIDAD&#xa;• App Engine us-central: caída de 23,2% en RPS&#xa;• Interconnect: 50–100% de pérdida en regiones afectadas&#xa;• VPN: 25% de pérdida en us-central1" vertex="1">
+          <mxGeometry height="125" width="500" x="650" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D99675;fontSize=14;align=left;spacing=10;" value="ALMACENAMIENTO Y DATOS&#xa;• Cloud Storage: 96,2% de errores en us-west2&#xa;• Pub/Sub: caída global de 27% en operaciones exitosas&#xa;• BigQuery: 0,7% de errores promedio" vertex="1">
+          <mxGeometry height="125" width="500" x="650" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D99675;fontSize=14;align=left;spacing=10;" value="STACKDRIVER MONITORING&#xa;• 8,4% de fallos promedio de inicio de sesión&#xa;• Caída de 5–10% en solicitudes por segundo" vertex="1">
+          <mxGeometry height="90" width="500" x="650" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E4DFEC;strokeColor=#8064A2;fontColor=#493568;fontSize=17;fontStyle=1;strokeWidth=2;" value="3. IMPACTO ESPECÍFICO EN CLOUD SPANNER" vertex="1">
+          <mxGeometry height="65" width="560" x="1280" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A694BD;fontSize=14;align=left;spacing=10;" value="INDISPONIBILIDAD REGIONAL&#xa;us-east4, us-west2 y northamerica-northeast1&#xa;11:48–15:44" vertex="1">
+          <mxGeometry height="90" width="560" x="1280" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A694BD;fontSize=14;align=left;spacing=10;" value="LATENCIA ADICIONAL EN P99&#xa;• nam3: más de 1 segundo&#xa;• nam6: 320 ms&#xa;• us-east1: 2 segundos&#xa;• us-central1: 80 ms" vertex="1">
+          <mxGeometry height="130" width="560" x="1280" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2F0D9;strokeColor=#70AD47;fontSize=14;fontStyle=1;align=left;spacing=10;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;INTERPRETACIÓN&lt;br&gt;Spanner conservó su modelo de consistencia.&lt;br&gt;La red degradada produjo indisponibilidad y aumento de latencia.&lt;/span&gt;" vertex="1">
+          <mxGeometry height="105" width="560" x="1280" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#BF9000;fontColor=#7F6000;fontSize=17;fontStyle=1;strokeWidth=2;" value="4. TRANSPARENCIAS AFECTADAS" vertex="1">
+          <mxGeometry height="65" width="470" x="70" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D6B656;fontSize=14;align=left;spacing=10;" value="TRANSPARENCIA DE FALLO&#xa;Errores, timeouts y pérdida de conexión visibles para el usuario." vertex="1">
+          <mxGeometry height="85" width="470" x="70" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D6B656;fontSize=14;align=left;spacing=10;" value="TRANSPARENCIA DE UBICACIÓN&#xa;Las regiones físicas y rutas de red dejaron de ser irrelevantes para los clientes." vertex="1">
+          <mxGeometry height="85" width="470" x="70" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D6B656;fontSize=14;align=left;spacing=10;" value="TRANSPARENCIA DE FALLO PARCIAL&#xa;El error se propagó a varios clústeres y ubicaciones físicas." vertex="1">
+          <mxGeometry height="85" width="470" x="70" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D6B656;fontSize=14;align=left;spacing=10;" value="TRANSPARENCIA DE REPLICACIÓN&#xa;La replicación de Spanner no ocultó la indisponibilidad regional." vertex="1">
+          <mxGeometry height="85" width="470" x="70" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DDEBF7;strokeColor=#4472C4;fontColor=#1F3864;fontSize=17;fontStyle=1;strokeWidth=2;" value="5. TEOREMA CAP APLICADO A CLOUD SPANNER" vertex="1">
+          <mxGeometry height="65" width="500" x="650" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4472C4;fontSize=14;align=left;spacing=10;" value="C - CONSISTENCIA&lt;br&gt;Transacciones externamente consistentes.&lt;br&gt;No se exponen datos que violen el orden de transacciones." vertex="1">
+          <mxGeometry height="100" width="500" x="650" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4472C4;fontSize=14;align=left;spacing=10;" value="A - DISPONIBILIDAD&lt;br&gt;Instancias regionales indisponibles durante el incidente." vertex="1">
+          <mxGeometry height="85" width="500" x="650" y="1105" as="geometry" />
+        </mxCell>
+        <mxCell id="25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4472C4;fontSize=14;align=left;spacing=10;" value="P - TOLERANCIA A PARTICIONES&lt;br&gt;Congestión, pérdida de rutas BGP y conectividad degradada." vertex="1">
+          <mxGeometry height="85" width="500" x="650" y="1205" as="geometry" />
+        </mxCell>
+        <mxCell id="26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2F0D9;strokeColor=#70AD47;fontSize=15;fontStyle=1;align=left;spacing=10;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;CONCLUSIÓN CAP&lt;br&gt;Ante la partición de red, Spanner priorizó la consistencia sobre la disponibilidad.&lt;/span&gt;" vertex="1">
+          <mxGeometry height="85" width="500" x="650" y="1305" as="geometry" />
+        </mxCell>
+        <mxCell id="27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#CC0000;fontColor=#990000;fontSize=17;fontStyle=1;strokeWidth=2;" value="6. MECANISMO DE TOLERANCIA A FALLOS INSUFICIENTE" vertex="1">
+          <mxGeometry height="65" width="560" x="1280" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D99694;fontSize=14;align=left;spacing=10;" value="REDUNDANCIA INSUFICIENTEMENTE AISLADA&#xa;Varias instancias fueron elegibles para el mismo mantenimiento." vertex="1">
+          <mxGeometry height="90" width="560" x="1280" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D99694;fontSize=14;align=left;spacing=10;" value="DOMINIOS DE FALLO COMPROMETIDOS&#xa;Se desprogramaron clústeres en distintas ubicaciones físicas." vertex="1">
+          <mxGeometry height="90" width="560" x="1280" y="955" as="geometry" />
+        </mxCell>
+        <mxCell id="30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D99694;fontSize=14;align=left;spacing=10;" value="MODO FAIL STATIC INSUFICIENTE&#xa;La operación temporal sin plano de control no evitó la retirada posterior de rutas BGP." vertex="1">
+          <mxGeometry height="100" width="560" x="1280" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D99694;fontSize=14;align=left;spacing=10;" value="PÉRDIDA DE CONFIGURACIÓN&#xa;Fue necesario reconstruir y redistribuir la configuración del plano de control." vertex="1">
+          <mxGeometry height="90" width="560" x="1280" y="1175" as="geometry" />
+        </mxCell>
+        <mxCell id="32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2F0D9;strokeColor=#70AD47;fontSize=14;align=left;spacing=10;" value="MEJORAS NECESARIAS&#xa;• Aislar los eventos de mantenimiento&#xa;• Persistir la configuración&#xa;• Fortalecer los mecanismos de recuperación" vertex="1">
+          <mxGeometry height="110" width="560" x="1280" y="1280" as="geometry" />
+        </mxCell>
+        <mxCell id="33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1F4E78;fontColor=#FFFFFF;strokeColor=#163A5A;strokeWidth=3;fontSize=17;fontStyle=1;align=center;verticalAlign=middle;spacing=12;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;CONCLUSIÓN GENERAL&lt;br&gt;Un fallo de automatización en el plano de control se propagó a múltiples servicios distribuidos.&lt;br&gt;La redundancia sin aislamiento de fallos no garantiza continuidad, transparencia ni disponibilidad.&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="1190" x="650" y="1532" as="geometry" />
+        </mxCell>
+        <mxCell id="34" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#3973A5;endArrow=block;endFill=1;" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="305" y="110" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="35" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#C65911;endArrow=block;endFill=1;" target="8">
+          <mxGeometry relative="1" x="0.7097" as="geometry">
+            <Array as="points">
+              <mxPoint x="1120" y="185" />
+              <mxPoint x="900" y="185" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#8064A2;endArrow=block;endFill=1;" target="13">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1150" y="185" />
+              <mxPoint x="1560" y="185" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="37" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=3;strokeColor=#BF9000;endArrow=block;endFill=1;" target="17">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="30" y="85" />
+              <mxPoint x="30" y="792.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="38" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=3;strokeColor=#4472C4;endArrow=block;endFill=1;entryX=0.996;entryY=0.132;entryDx=0;entryDy=0;entryPerimeter=0;" target="22">
+          <mxGeometry relative="1" x="0.2953" as="geometry">
+            <Array as="points">
+              <mxPoint x="1190" y="908.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="39" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=3;strokeColor=#CC0000;endArrow=block;endFill=1;" target="27">
+          <mxGeometry relative="1" x="0.1668" as="geometry">
+            <Array as="points">
+              <mxPoint x="1970" y="85" />
+              <mxPoint x="1970" y="810" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="40" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6C9BC2;endArrow=none;" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="41" edge="1" parent="1" source="5" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6C9BC2;endArrow=none;" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="42" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6C9BC2;endArrow=none;" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="43" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D99675;endArrow=none;" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="44" edge="1" parent="1" source="9" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D99675;endArrow=none;" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="45" edge="1" parent="1" source="10" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D99675;endArrow=none;" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="46" edge="1" parent="1" source="11" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D99675;endArrow=none;" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="47" edge="1" parent="1" source="13" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#A694BD;endArrow=none;" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="48" edge="1" parent="1" source="14" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#A694BD;endArrow=none;" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="49" edge="1" parent="1" source="15" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#A694BD;endArrow=none;" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="50" edge="1" parent="1" source="17" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D6B656;endArrow=none;" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="51" edge="1" parent="1" source="18" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D6B656;endArrow=none;" target="19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52" edge="1" parent="1" source="19" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D6B656;endArrow=none;" target="20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="53" edge="1" parent="1" source="20" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D6B656;endArrow=none;" target="21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="54" edge="1" parent="1" source="22" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#4472C4;endArrow=none;" target="23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="55" edge="1" parent="1" source="23" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#4472C4;endArrow=none;" target="24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="56" edge="1" parent="1" source="24" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#4472C4;endArrow=none;" target="25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="57" edge="1" parent="1" source="25" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#4472C4;endArrow=block;endFill=1;" target="26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="58" edge="1" parent="1" source="27" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D99694;endArrow=none;" target="28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="59" edge="1" parent="1" source="28" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D99694;endArrow=none;" target="29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="60" edge="1" parent="1" source="29" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D99694;endArrow=none;" target="30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="61" edge="1" parent="1" source="30" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D99694;endArrow=none;" target="31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="62" edge="1" parent="1" source="31" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#70AD47;endArrow=block;endFill=1;" target="32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="63" edge="1" parent="1" source="7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#CC0000;fontColor=#990000;fontStyle=1;endArrow=block;endFill=1;" target="8" value="provoca">
+          <mxGeometry relative="1" x="0.0114" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="590" y="592.5" />
+              <mxPoint x="590" y="262.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="64" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8064A2;fontColor=#493568;fontStyle=1;endArrow=block;endFill=1;" target="13" value="afecta">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65" edge="1" parent="1" source="13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4472C4;fontColor=#1F3864;fontStyle=1;endArrow=block;endFill=1;" target="22" value="se interpreta mediante">
+          <mxGeometry relative="1" x="0.6" y="30" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1210" y="280" />
+              <mxPoint x="1210" y="950" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="66" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#CC0000;fontColor=#990000;fontStyle=1;endArrow=block;endFill=1;" target="27" value="revela limitaciones de">
+          <mxGeometry relative="1" x="-0.6959" y="20" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="305" y="200" />
+              <mxPoint x="1940" y="200" />
+              <mxPoint x="1940" y="770" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="67" edge="1" parent="1" source="26" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1F4E78;strokeWidth=2;endArrow=block;endFill=1;" target="33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="68" edge="1" parent="1" source="32" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1F4E78;strokeWidth=2;endArrow=block;endFill=1;" target="33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="69" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;REFERENCIAS BIBLIOGRÁFICAS&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="180" x="2190" y="180" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
