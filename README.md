@@ -2,11 +2,22 @@
 
 Análisis del incidente de red de Google Cloud del 2 de junio de 2019 para Aplicaciones Distribuidas (ISR-701), séptimo nivel, paralelo A, Universidad Técnica Estatal de Quevedo.
 
-## Integrantes que elaboraron el informe
+## Equipo
 
+- Coronel Gomez Khriz Alexander (ver observación)
 - Giraldo Cagua Diego Jose
 - Loor Mendoza Byron Daniel
 - Silva Triviño John Jairo
+
+## Archivos del informe
+
+- [Informe grupal compilado](informe.pdf)
+- [Código fuente LaTeX](informe.tex)
+- [Bibliografía](referencias.bib)
+
+## Observación sobre la entrega
+
+Al cierre de esta versión, el equipo no había recibido el apartado asignado a Coronel Gomez Khriz Alexander. El apartado de mitigación quedó pendiente porque el equipo no logró coordinar su integración en las últimas horas previas a la entrega.
 
 ## Compilación
 
