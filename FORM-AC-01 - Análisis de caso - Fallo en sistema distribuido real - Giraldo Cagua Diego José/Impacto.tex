@@ -2,6 +2,7 @@
 \usepackage[spanish]{babel}
 \usepackage[margin=2cm]{geometry}
 \usepackage{tabularx}
+\usepackage{float}
 \providecommand{\toprule}{\hline}
 \providecommand{\midrule}{\hline}
 \providecommand{\bottomrule}{\hline}
@@ -10,173 +11,293 @@
 
 \begin{document}
 
-\section{Impacto y analisis de la unidad 1}
+\begin{titlepage}
+\centering
+\thispagestyle{empty}
 
-El incidente de red de Google Cloud del 2 de junio de 2019 afecto a varios servicios y
-regiones. Google reporto cifras diferenciadas por servicio, region e intervalo. El impacto no
-fue uniforme: algunas regiones sufrieron perdida total de conectividad, mientras que otras
-experimentaron degradacion parcial de latencia o errores. \cite{googlecloud19009}
+\vspace*{0.8cm}
 
-\subsection{Cifras por servicio y region}
+{\Large Universidad Técnica Estatal de Quevedo\par}
 
-En Compute Engine, la region us-east1 presento hasta 33 por ciento de perdida de paquetes
-entre las 11:38 y las 12:17. Entre las 12:17 y las 14:50, la perdida se redujo a un maximo de
-8 por ciento. En us-central1, la perdida alcanzo un pico de 9 por ciento inmediatamente
-despues de las 11:38 y disminuyo hacia las 12:05. \cite{googlecloud19009}
+\vspace{0.4cm}
 
-Desde us-west1, la perdida de paquetes hacia us-east1 alcanzo 20 por ciento y hacia
-us-central1 alcanzo 8.6 por ciento. Hacia Europa, la perdida fue de hasta 1.9 por ciento. Las
-instancias de Compute Engine en us-east4, us-west2, northamerica-northeast1 y
-southamerica-east1 quedaron inaccesibles durante el incidente. \cite{googlecloud19009}
+{\large Facultad de Ciencias de la Computación\par}
 
-Las aplicaciones de App Engine en us-east4, us-west2, northamerica-northeast1 y
-southamerica-east1 no estuvieron disponibles durante la interrupcion. En us-central, el
-servicio experimento una caida de 23.2 por ciento en solicitudes por segundo. \cite{googlecloud19009}
+\vspace{0.3cm}
 
-Cloud Interconnect en us-east4, us-west2, northamerica-northeast1 y southamerica-east1
-presento perdida de paquetes entre 50 y 100 por ciento entre las 11:45 y las 16:10. Algunos
-enlaces BGP se desconectaron. En us-west1, us-east1 y us-central1, las interconexiones
-conectadas a la costa este registraron perdida de paquetes entre 10 y 50 por ciento debido a
-la congestion de la red troncal. \cite{googlecloud19009}
+{\large Carrera de Ingeniería en Software\par}
 
-Los gateways de Cloud VPN en us-east4, us-west2, northamerica-northeast1 y
-southamerica-east1 quedaron inaccesibles. En us-central1 se registro 25 por ciento de perdida
-de paquetes y en us-east1 se registro 10 por ciento. \cite{googlecloud19009}
+\vspace{1.6cm}
 
-Cloud Pub/Sub presento una caida global de 27 por ciento en publicaciones y suscripciones
-exitosas. En us-east4, el error promedio fue de 0.3 por ciento en publicaciones y 25 por
-ciento en suscripciones. En southamerica-east1, los errores fueron de 11 por ciento en
-publicaciones y 36 por ciento en suscripciones. En northamerica-northeast1, los errores
-fueron de 6 por ciento en publicaciones y 31 por ciento en suscripciones. \cite{googlecloud19009}
+{\Large
+Análisis de caso: fallo real en un sistema distribuido
+\par}
 
-Cloud Storage presento los mayores porcentajes de error en us-west2, con 96.2 por ciento;
-southamerica-east1, con 79.3 por ciento; us-east4, con 62.4 por ciento; y
-northamerica-northeast1, con 43.4 por ciento. En us, us-east1, us-west1 y us-central1, el
-error promedio fue de 3.5, 1.7, 1.2 y 0.7 por ciento, respectivamente. \cite{googlecloud19009}
+\vspace{1.5cm}
 
-BigQuery registro un error global promedio de 0.7 por ciento. La operacion jobs.insert
-presento 27 por ciento de errores entre las 11:47 y las 12:02. La operacion
-tabledata.insertAll alcanzo un pico de 24 por ciento de errores, aunque su error promedio fue
-inferior a 0.01 por ciento. \cite{googlecloud19009}
+{\large
+Asignatura: Sistemas Distribuidos\par
+}
 
-El frontend de Stackdriver Monitoring experimento una caida de 5 a 10 por ciento en
-solicitudes por segundo. El error promedio de inicio de sesion fue de 8.4 por ciento y el
-error al cargar datos fue de 3.5 por ciento. \cite{googlecloud19009}
+\vspace{0.4cm}
 
-Cloud Endpoints presento errores de hasta 4.4 por ciento al inicio del incidente. Entre las
-12:50 y las 15:40, el error promedio fue de 0.6 por ciento. Ademas, el 50 por ciento de los
-flujos de publicacion de configuracion fallo entre las 12:00 del 2 de junio y las 11:30 del
-4 de junio. \cite{googlecloud19009}
+{\large
+Código de la actividad: FORM-AC-01\par
+}
+
+\vspace{0.8cm}
+
+{\large
+Estudiante: Diego José Giraldo Cagua\par
+}
+
+\vspace{0.4cm}
+
+{\large
+Paralelo: 7mo A\par
+}
+
+\vspace{0.4cm}
+
+{\large
+Fecha: 14 de noviembre de 2026\par
+}
+
+\vfill
+
+{\normalsize Repositorio del proyecto\par}
+
+\vspace{0.3cm}
+
+\begin{minipage}{0.95\textwidth}
+\centering
+\small
+\url{https://github.com/Danxxx777/CGLS-.git}
+\par
+\end{minipage}
+
+\vspace*{0.8cm}
+
+\end{titlepage}
+
+\begingroup
+\small
+\setlength{\floatsep}{4pt}
+\setlength{\textfloatsep}{5pt}
+\setlength{\intextsep}{5pt}
+
+\section{Impacto y análisis de la unidad 1}
+
+El incidente de red de Google Cloud del 2 de junio de 2019 afectó a varios servicios y
+regiones. Google reportó cifras diferenciadas por servicio, región e intervalo. El impacto no
+fue uniforme: algunas regiones sufrieron pérdida total de conectividad, mientras que otras
+experimentaron degradación parcial de latencia o errores. \cite{googlecloud19009}
+
+\subsection{Cifras por servicio y región}
+
+\begin{table}[htbp]
+\centering
+\caption{Cifras de impacto por servicio, región e intervalo}
+\label{tab:cifras}
+\small
+\begin{tabularx}{\textwidth}{p{3.2cm}p{3.4cm}p{3.2cm}X}
+\hline
+\textbf{Servicio} & \textbf{Región o configuración} & \textbf{Intervalo} & \textbf{Cifra reportada} \\
+\hline
+Compute Engine & us-east1 & 11:38 a 12:17 & Hasta 33\% de pérdida de paquetes. \\
+Compute Engine & us-east1 & 12:17 a 14:50 & Hasta 8\% de pérdida de paquetes. \\
+Compute Engine & us-central1 & Después de 11:38 & Pico de 9\% de pérdida de paquetes. \\
+Compute Engine & us-west1 hacia us-east1 & Inicio del incidente & Pico de 20\% de pérdida de paquetes. \\
+Compute Engine & us-west1 hacia us-central1 & Inicio del incidente & Pico de 8.6\% de pérdida de paquetes. \\
+Compute Engine & us-west1 hacia Europa & Inicio del incidente & Hasta 1.9\% de pérdida de paquetes. \\
+Compute Engine & us-east4, us-west2, northamerica-northeast1 y southamerica-east1 & Duración del incidente & Instancias inaccesibles. \\
+App Engine & us-east4, us-west2, northamerica-northeast1 y southamerica-east1 & Duración de la interrupción & Aplicaciones no disponibles. \\
+App Engine & us-central & Durante el incidente & Caída de 23.2\% en solicitudes por segundo. \\
+Cloud Interconnect & us-east4, us-west2, northamerica-northeast1 y southamerica-east1 & 11:45 a 16:10 & Pérdida de paquetes de 50\% a 100\%; algunos enlaces BGP se cayeron. \\
+Cloud Interconnect & us-west1, us-east1 y us-central1 & Durante el incidente & 10\% a 50\% de pérdida por congestión del backbone. \\
+Cloud VPN & us-east4, us-west2, northamerica-northeast1 y southamerica-east1 & Duración del incidente & Gateways inaccesibles. \\
+Cloud VPN & us-central1 & Durante el incidente & 25\% de pérdida de paquetes. \\
+Cloud VPN & us-east1 & Durante el incidente & 10\% de pérdida de paquetes. \\
+Cloud Pub/Sub & us-east4 & Promedio durante el incidente & 0.3\% de errores de publicación y 25\% de suscripción. \\
+Cloud Pub/Sub & southamerica-east1 & Promedio durante el incidente & 11\% de errores de publicación y 36\% de suscripción. \\
+Cloud Pub/Sub & northamerica-northeast1 & Promedio durante el incidente & 6\% de errores de publicación y 31\% de suscripción. \\
+Cloud Pub/Sub & Global & Durante la interrupción & Caída de 27\% en publicaciones y suscripciones exitosas. \\
+BigQuery & Global & Promedio durante el incidente & 0.7\% de errores. \\
+BigQuery & jobs.insert & 11:47 a 12:02 & 27\% de errores. \\
+BigQuery & tabledata.insertAll & 11:47 a 12:02 & Pico de 24\% de errores; promedio inferior a 0.01\%. \\
+Cloud Storage & us-west2 & Durante el incidente & 96.2\% de error promedio. \\
+Cloud Storage & southamerica-east1 & Durante el incidente & 79.3\% de error promedio. \\
+Cloud Storage & us-east4 & Durante el incidente & 62.4\% de error promedio. \\
+Cloud Storage & northamerica-northeast1 & Durante el incidente & 43.4\% de error promedio. \\
+Cloud Storage & us, us-east1, us-west1 y us-central1 & Durante el incidente & 3.5\%, 1.7\%, 1.2\% y 0.7\% de error promedio, respectivamente. \\
+Stackdriver Monitoring & Frontend & Duración del incidente & Caída de 5\% a 10\% en solicitudes por segundo; 8.4\% de fallos de inicio de sesión y 3.5\% de errores al cargar datos. \\
+Cloud Endpoints & Servicios afectados & Inicio del incidente & Errores de hasta 4.4\%; promedio de 0.6\% entre 12:50 y 15:40. \\
+Cloud Endpoints & Configuraciones & 12:00 del 2 de junio a 11:30 del 4 de junio & 50\% de flujos de publicación de configuración fallaron. \\
+\hline
+\end{tabularx}
+\end{table}
 
 \subsection{Impacto en Cloud Spanner}
 
-Cloud Spanner fue el componente seleccionado para el analisis de CAP. Durante el incidente,
+Cloud Spanner fue el componente seleccionado para el análisis de CAP. Durante el incidente,
 las instancias regionales de Spanner en us-east4, us-west2 y northamerica-northeast1
 estuvieron indisponibles entre las 11:48 y las 15:44. \cite{googlecloud19009}
 
 \begin{table}[htbp]
 \centering
-\caption{Impacto de Cloud Spanner por configuracion y intervalo}
+\caption{Impacto de Cloud Spanner por configuración e intervalo}
 \label{tab:spanner}
-\begin{tabular}{p{4cm}p{3.5cm}p{7cm}}
+\small
+\begin{tabularx}{\textwidth}{p{4.2cm}p{3.2cm}X}
 \hline
-\textbf{Configuracion} & \textbf{Intervalo} & \textbf{Cifra reportada} \\
+\textbf{Configuración} & \textbf{Intervalo} & \textbf{Cifra reportada} \\
 \hline
-us-east4, us-west2 y northamerica-northeast1 & 11:48 a 15:44 & Instancias regionales
-indisponibles. \\
-nam3 & 11:50 a 13:10 & Mas de 1 segundo adicional de latencia en el percentil 99. \\
+us-east4, us-west2 y northamerica-northeast1 & 11:48 a 15:44 & Instancias regionales indisponibles. \\
+nam3 & 11:50 a 13:10 & Más de 1 segundo adicional de latencia en el percentil 99. \\
 nam3 & 13:10 a 16:50 & 100 ms adicionales de latencia en el percentil 99. \\
 nam6 & 11:50 a 13:10 & 320 ms adicionales de latencia en el percentil 99. \\
 nam6 & 13:10 a 16:50 & 130 ms adicionales de latencia en el percentil 99. \\
 us-central1 & 11:50 a 13:10 & 80 ms adicionales de latencia en el percentil 99. \\
+us-central1 & 13:10 a 16:50 & 10 ms adicionales de latencia en el percentil 99. \\
 us-east1 & 11:50 a 13:10 & 2 segundos adicionales de latencia en el percentil 99. \\
 us-east1 & 13:10 a 15:50 & 250 ms adicionales de latencia en el percentil 99. \\
 us-west1 & 11:50 a 14:10 & 20 ms adicionales de latencia. \\
 nam-eur-asia1 & 13:50 a 15:20 & 120 ms adicionales de latencia en el percentil 99. \\
 \hline
-\end{tabular}
+\end{tabularx}
 \end{table}
 
-Los datos indican que el impacto en Spanner se manifesto de dos formas. En las regiones
-us-east4, us-west2 y northamerica-northeast1, el servicio perdio disponibilidad. En otras
-configuraciones, el servicio continuo operando, pero con un aumento considerable de latencia.
+Los datos indican que el impacto en Spanner se manifestó de dos formas. En las regiones
+us-east4, us-west2 y northamerica-northeast1, el servicio perdió disponibilidad. En otras
+configuraciones, el servicio continuó operando, pero con un aumento considerable de latencia.
 \cite{googlecloud19009}
 
 \subsection{Transparencia afectada}
 
-El incidente rompio varias formas de transparencia propias de los sistemas distribuidos.
+El incidente rompió varias formas de transparencia propias de los sistemas distribuidos.
 
 La transparencia de fallo busca ocultar al usuario la ocurrencia de fallos internos. Durante
-el incidente, esta transparencia se rompio porque los clientes observaron errores, timeouts,
-perdida de paquetes e indisponibilidad de servicios. \cite{googlecloud19009}
+el incidente, esta transparencia se rompió porque los clientes observaron errores, tiempos de
+espera, pérdida de paquetes e indisponibilidad de servicios. \cite{googlecloud19009}
 
-La transparencia de ubicacion supone que el usuario no necesita conocer la ubicacion fisica de
-los recursos. En este caso, la ubicacion de las regiones afectadas se hizo visible porque los
+La transparencia de ubicación supone que el usuario no necesita conocer la ubicación física de
+los recursos. En este caso, la ubicación de las regiones afectadas se hizo visible porque los
 servicios en us-east4, us-west2, northamerica-northeast1 y southamerica-east1 quedaron
 indisponibles. \cite{googlecloud19009}
 
-La transparencia de fallo parcial busca limitar el efecto de un fallo a un componente o region
-especifica. Google reporto que la automatizacion desprogramo clusteres de control de red en
-varias ubicaciones fisicas al mismo tiempo. Esto amplio el alcance del fallo y evito que la
+La transparencia de fallo parcial busca limitar el efecto de un fallo a un componente o región
+específica. Google reportó que la automatización desprogramó clústeres de control de red en
+varias ubicaciones físicas al mismo tiempo. Esto amplió el alcance del fallo y evitó que la
 falla permaneciera contenida en un solo dominio. \cite{googlecloud19009}
 
-La transparencia de replicacion busca que el usuario no perciba la existencia de replicas o
-copias distribuidas de los datos. En Cloud Spanner, la replicacion no pudo ocultar
-completamente la interrupcion. Las instancias regionales afectadas dejaron de estar
-disponibles y las configuraciones multiregion experimentaron aumentos de latencia.
+La transparencia de replicación busca que el usuario no perciba la existencia de réplicas o
+copias distribuidas de los datos. En Cloud Spanner, la replicación no pudo ocultar
+completamente la interrupción. Las instancias regionales afectadas dejaron de estar
+disponibles y las configuraciones multirregión experimentaron aumentos de latencia.
 \cite{googlecloud19009}
 
-\subsection{Aplicacion de CAP a Cloud Spanner}
+\subsection{Aplicación de CAP a Cloud Spanner}
 
-El teorema CAP establece que, ante una particion de red, un sistema distribuido no puede
-garantizar simultaneamente consistencia y disponibilidad. En este caso, la congestion de la
-red troncal y la perdida de rutas BGP constituyen una degradacion severa de la red que puede
-analizarse como una particion. \cite{googlecloud19009}
+El teorema CAP establece que, ante una partición de red, un sistema distribuido no puede
+garantizar simultáneamente consistencia y disponibilidad. En este caso, la congestión de la
+red troncal y la pérdida de rutas BGP constituyen una degradación severa de la red que puede
+analizarse como una partición. \cite{googlecloud19009}
 
 \begin{table}[htbp]
 \centering
-\caption{Aplicacion de CAP a Cloud Spanner}
+\caption{Aplicación de CAP a Cloud Spanner}
 \label{tab:cap}
-\begin{tabular}{p{3cm}p{11.5cm}}
+\small
+\begin{tabularx}{\textwidth}{p{3cm}X}
 \hline
-\textbf{Propiedad} & \textbf{Aplicacion al incidente} \\
+\textbf{Propiedad} & \textbf{Aplicación al incidente} \\
 \hline
 Consistencia & Spanner mantiene transacciones distribuidas externamente consistentes. El
 sistema no expone datos que violen el orden de las transacciones. \cite{corbett2013spanner} \\
 Disponibilidad & Las instancias regionales de Spanner en us-east4, us-west2 y
 northamerica-northeast1 estuvieron indisponibles entre las 11:48 y las 15:44. El servicio
-prefirio no responder antes que comprometer la consistencia. \cite{googlecloud19009} \\
-Tolerancia a particiones & La perdida de rutas BGP y la congestion del backbone actuaron como
-una particion o degradacion severa de la red. Spanner continuo operando bajo esa condicion en
+prefirió no responder antes que comprometer la consistencia. \cite{googlecloud19009} \\
+Tolerancia a particiones & La pérdida de rutas BGP y la congestión del backbone actuaron como
+una partición o degradación severa de la red. Spanner continuó operando bajo esa condición en
 las configuraciones que conservaron conectividad. \cite{googlecloud19009} \\
 \hline
-\end{tabular}
+\end{tabularx}
 \end{table}
 
-La evidencia del incidente muestra que Spanner priorizo la consistencia. Ante la degradacion
-de la red, el sistema redujo disponibilidad en las regiones afectadas y aumento la latencia en
+La evidencia del incidente muestra que Spanner priorizó la consistencia. Ante la degradación
+de la red, el sistema redujo disponibilidad en las regiones afectadas y aumentó la latencia en
 otras configuraciones, en lugar de ofrecer respuestas que pudieran comprometer la consistencia
 externa. \cite{googlecloud19009,corbett2013spanner}
 
 \subsection{Mecanismo de tolerancia a fallos insuficiente}
 
-El mecanismo de tolerancia a fallos que resulto insuficiente fue la redundancia del plano de
-control de red. Google disponia de multiples instancias del software de gestion de clusteres,
-pero una configuracion las marco como elegibles para el mismo evento de mantenimiento.
+El mecanismo de tolerancia a fallos que resultó insuficiente fue la redundancia del plano de
+control de red. Google disponía de múltiples instancias del software de gestión de clústeres,
+pero una configuración las marcó como elegibles para el mismo evento de mantenimiento.
 \cite{googlecloud19009}
 
-El software de mantenimiento tenia un error que permitia desprogramar varios clusteres
-independientes al mismo tiempo, incluso cuando estaban ubicados en sitios fisicos distintos.
-Esto violo el principio de aislamiento entre dominios de fallo. \cite{googlecloud19009}
+El software de mantenimiento tenía un error que permitía desprogramar varios clústeres
+independientes al mismo tiempo, incluso cuando estaban ubicados en sitios físicos distintos.
+Esto violó el principio de aislamiento entre dominios de fallo. \cite{googlecloud19009}
 
-La red estaba disenada para operar temporalmente sin plano de control en un modo conocido como
-fail static. Sin embargo, ese periodo fue demasiado corto. Despues de varios minutos, se
+La red estaba diseñada para operar temporalmente sin plano de control en un modo conocido como
+fail static. Sin embargo, ese período fue demasiado corto. Después de varios minutos, se
 retiraron rutas BGP entre ubicaciones afectadas, lo que redujo la capacidad de la red troncal
-y desconecto regiones. \cite{googlecloud19009}
+y desconectó regiones. \cite{googlecloud19009}
 
-La recuperacion tambien fue lenta porque la configuracion del plano de control se perdio y
-tuvo que reconstruirse y redistribuirse. Google indico que persistir dicha configuracion
-habria reducido el tiempo de recuperacion en un orden de magnitud. \cite{googlecloud19009}
+La recuperación también fue lenta porque la configuración del plano de control se perdió y
+tuvo que reconstruirse y redistribuirse. Google indicó que persistir dicha configuración
+habría reducido el tiempo de recuperación en un orden de magnitud. \cite{googlecloud19009}
+
+\endgroup
+
+\subsection{Riesgos del PFC y medidas preventivas}
+
+El PFC corresponde a una cooperativa de buses interprovinciales ejecutivos. El sistema
+permitirá reservar asientos en línea, vender boletos presenciales, registrar y seguir
+encomiendas, consultar el estado del bus y administrar inventario, boletería, choferes,
+oficiales y bodegueros. \cite{googlecloud19009}
+
+\begin{table}[H]
+\centering
+\caption{Riesgos del PFC y medidas preventivas}
+\label{tab:riesgos}
+\footnotesize
+\begin{tabularx}{\textwidth}{p{2.8cm}Xp{4.8cm}}
+\usepackage{float}
+\hline
+\textbf{Riesgo} & \textbf{Posible fallo similar} & \textbf{Medida preventiva} \\
+\hline
+Falla de un solo servidor de base de datos & Si la base de datos que registra ventas,
+reservas y encomiendas se encuentra en un único servidor, una caída impediría vender boletos,
+reservar asientos y consultar el seguimiento de una encomienda. Esto se asemeja a la
+indisponibilidad de las instancias regionales de Cloud Spanner en us-east4, us-west2 y
+northamerica-northeast1 durante el incidente. \cite{googlecloud19009} &
+Implementar una base de datos replicada en al menos dos zonas o servidores independientes.
+Las réplicas deben estar en dominios de fallo separados. Ante una caída, el sistema debe
+redirigir las operaciones a una réplica disponible sin perder las ventas o reservas ya
+confirmadas. \\
+\hline
+Dependencia de una única conexión de red & Si la boletería presencial, los buses y el
+servidor central dependen de una sola conexión a Internet, una caída de red impediría
+consultar disponibilidad, emitir boletos o actualizar el estado de una encomienda. Esto es
+similar a la pérdida de rutas BGP y la congestión que redujo la capacidad de la red de Google
+Cloud. \cite{googlecloud19009} &
+Usar conexiones de respaldo en las boleterías y en los buses, por ejemplo, una red móvil
+secundaria. El sistema debe guardar localmente las ventas y actualizaciones de encomiendas
+cuando no haya conexión y sincronizarlas automáticamente al recuperar la comunicación. \\
+\hline
+Actualizaciones simultáneas de asientos & Si dos usuarios reservan el mismo asiento al mismo
+tiempo, o si la boletería y la venta en línea actualizan el inventario sin control, el sistema
+podría vender un asiento dos veces o mostrar información inconsistente. Esto se relaciona con
+la necesidad de Spanner de mantener transacciones distribuidas externamente consistentes.
+\cite{corbett2013spanner} &
+Usar transacciones con control de concurrencia y bloqueo optimista o pesimista para la
+reserva de asientos. Antes de confirmar una venta, el sistema debe validar que el asiento
+siga disponible y registrar la operación de forma atómica. \\
+\hline
+\end{tabularx}
+\end{table}
 
 \printbibliography
 
